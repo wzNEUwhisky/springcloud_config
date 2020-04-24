@@ -1,0 +1,24 @@
+server:
+  port: 8002
+spring:
+  application:
+    name: provider
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mybatis?characterEncoding=utf-8&serverTimezone=GMT%2B8
+    username: root
+    password: 211203wzq
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: edu.neu.springcloud.provider.bean
+
+logging:
+  level:
+    root: INFO
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/,http://localhost:7002/eureka/
+  instance:
+    instance-id: provider1
+    prefer-ip-address: true
